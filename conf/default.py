@@ -113,7 +113,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     # OTHER 3rd Party App
-    'app_control',
     'account',
     'home_application',
     'rest_framework',

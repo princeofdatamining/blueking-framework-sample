@@ -22,8 +22,6 @@ urlpatterns = patterns(
     url(r'^admin/', include(admin.site.urls)),
     # 用户登录鉴权--请勿修改
     url(r'^account/', include('account.urls')),
-    # 应用功能开关控制--请勿修改
-    url(r'^app_control/', include('app_control.urls')),
     url(r'^auth/', include('rest_framework.urls')),
     # 在home_application(根应用)里开始开发你的应用的主要功能
     url(r'^', include('home_application.urls')),
