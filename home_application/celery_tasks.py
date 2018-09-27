@@ -19,15 +19,13 @@ from celery import task
 from celery.schedules import crontab
 from celery.task import periodic_task
 
-from common.log import logger
-
 
 @task()
 def async_task(x, y):
     """
     定义一个 celery 异步任务
     """
-    logger.error(u"celery 定时任务执行成功，执行结果：{:0>2}:{:0>2}".format(x, y))
+    # logger.error(u"celery 定时任务执行成功，执行结果：{:0>2}:{:0>2}".format(x, y))
     return x + y
 
 
@@ -43,7 +41,7 @@ def execute_task():
                       详见 ：http://celery.readthedocs.org/en/latest/userguide/calling.html
     """
     now = datetime.datetime.now()
-    logger.error(u"celery 定时任务启动，将在60s后执行，当前时间：{}".format(now))
+    # logger.error(u"celery 定时任务启动，将在60s后执行，当前时间：{}".format(now))
     # 调用定时任务
     async_task.apply_async(args=[now.hour, now.minute], eta=now + datetime.timedelta(seconds=60))
 
@@ -58,4 +56,4 @@ def get_time():
     """
     execute_task()
     now = datetime.datetime.now()
-    logger.error(u"celery 周期任务调用成功，当前时间：{}".format(now))
+    # logger.error(u"celery 周期任务调用成功，当前时间：{}".format(now))

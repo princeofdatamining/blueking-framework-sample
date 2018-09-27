@@ -17,9 +17,6 @@
 
 
 --公共包
-	account：用户登录鉴权
-	common：公用方法（log，decorator， context_processors）
-
 	static：态文件(css, js, img)
 	templates：模版（django模版和mako模版，如果说ajax的子页面，模版文件可以使用其他后缀，如**.part）
 

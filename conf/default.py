@@ -100,8 +100,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'account.middlewares.LoginMiddleware',   # 登录鉴权中间件
-    'common.middlewares.CheckXssMiddleware',  # Xss攻击处理中间件
 )
 
 INSTALLED_APPS = (
@@ -113,7 +111,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     # OTHER 3rd Party App
-    'account',
     'home_application',
     'rest_framework',
 )
@@ -167,7 +164,6 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.template.context_processors.request',
                 'django.template.context_processors.csrf',
-                'common.context_processors.mysetting',   # 自定义模版context，可在页面中使用STATIC_URL等变量
                 'django.template.context_processors.i18n',
             ],
             'debug': DEBUG
@@ -183,8 +179,6 @@ SESSION_COOKIE_PATH = SITE_URL               # NOTE 不要改动，否则，可�
 # ===============================================================================
 # Authentication
 # ===============================================================================
-AUTH_USER_MODEL = 'account.BkUser'
-AUTHENTICATION_BACKENDS = ('account.backends.BkBackend', 'django.contrib.auth.backends.ModelBackend')
 LOGIN_URL = "%s/login/?app_id=%s" % (BK_PAAS_HOST, APP_ID)
 LOGOUT_URL = '%saccount/logout/' % SITE_URL
 LOGIN_REDIRECT_URL = SITE_URL

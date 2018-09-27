@@ -11,28 +11,27 @@ See the License for the specific language governing permissions and limitations 
 
 import sys
 from django.http import JsonResponse
-from common.mymako import render_mako_context
 
 
 def home(request):
     """
     首页
     """
-    return render_mako_context(request, '/home_application/home.html')
+    return JsonResponse("home")
 
 
 def dev_guide(request):
     """
     开发指引
     """
-    return render_mako_context(request, '/home_application/dev_guide.html')
+    return JsonResponse("dev_guide")
 
 
 def contactus(request):
     """
     联系我们
     """
-    return render_mako_context(request, '/home_application/contact.html')
+    return JsonResponse("contactus")
 
 
 def say(request):
