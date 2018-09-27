@@ -9,6 +9,8 @@ an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express o
 See the License for the specific language governing permissions and limitations under the License.
 """
 
+import sys
+from django.http import JsonResponse
 from common.mymako import render_mako_context
 
 
@@ -31,3 +33,8 @@ def contactus(request):
     联系我们
     """
     return render_mako_context(request, '/home_application/contact.html')
+
+
+def say(request):
+    word = request.GET.get("word") or sys.version
+    return JsonResponse(dict(word=word))
