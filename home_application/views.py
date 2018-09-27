@@ -17,21 +17,21 @@ def home(request):
     """
     首页
     """
-    return JsonResponse("home")
+    return JsonResponse(dict(html="home"))
 
 
 def dev_guide(request):
     """
     开发指引
     """
-    return JsonResponse("dev_guide")
+    return JsonResponse(dict(html="dev_guide"))
 
 
 def contactus(request):
     """
     联系我们
     """
-    return JsonResponse("contactus")
+    return JsonResponse(dict(html="contactus"))
 
 
 def say(request):
