@@ -9,12 +9,13 @@ an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express o
 See the License for the specific language governing permissions and limitations under the License.
 """
 
-from django.conf.urls import patterns
+from django.conf.urls import re_path, include
+from home_application import views
 
-urlpatterns = patterns(
-    'home_application.views',
-    (r'^$', 'home'),
-    (r'^dev-guide/$', 'dev_guide'),
-    (r'^contactus/$', 'contactus'),
-    (r'^say/$', 'say'),
-)
+
+urlpatterns = [
+    re_path(r'^$', views.home),
+    re_path(r'^dev-guide/$', views.dev_guide),
+    re_path(r'^contactus/$', views.contactus),
+    re_path(r'^say/$', views.say),
+]

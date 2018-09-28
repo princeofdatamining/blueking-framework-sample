@@ -10,17 +10,16 @@ See the License for the specific language governing permissions and limitations 
 
 urls config
 """
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, re_path
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 # admin.autodiscover()
 
 # 公共URL配置
-urlpatterns = patterns(
-    '',
+urlpatterns = [
     # Django后台数据库管理
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^auth/', include('rest_framework.urls')),
+    re_path(r'^admin/', admin.site.urls),
+    re_path(r'^auth/', include('rest_framework.urls')),
     # 在home_application(根应用)里开始开发你的应用的主要功能
-    url(r'^', include('home_application.urls')),
-)
+    re_path(r'^', include('home_application.urls')),
+]
